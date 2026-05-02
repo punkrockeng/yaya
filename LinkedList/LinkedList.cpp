@@ -18,6 +18,17 @@ class LinkedList {
       this->head = newHead;
       this->head->next = oldHead;
     };
+
+    void insertTail(int val) {
+      Node* node = this->head;
+      while(node) {
+        if (node->next == nullptr) {
+          node->next = new Node(val);
+          return;
+        }
+        node = node->next;
+      }
+    };
     // insert
     // delete
     // forEach
