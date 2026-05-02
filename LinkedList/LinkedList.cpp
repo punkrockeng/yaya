@@ -29,9 +29,15 @@ class LinkedList {
         node = node->next;
       }
     };
+
     // insert
     // delete
     // forEach
     // insert before
     // insert after
+    ~LinkedList() {
+      while(head != nullptr) {
+        head = std::move(head->next);
+      }
+    };
 };
