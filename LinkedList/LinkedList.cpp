@@ -11,6 +11,13 @@ class LinkedList {
     Node* head;
   public:
     LinkedList() : head(nullptr) {};
+
+    void insertHead(int val) {
+      Node newHead = new Node(val);
+      Node oldHead = this->head;
+      this->head = newHead;
+      this->head->next = oldHead;
+    };
     // insert
     // delete
     // forEach

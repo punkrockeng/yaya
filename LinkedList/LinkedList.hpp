@@ -8,6 +8,9 @@ class LinkedList {
   public:
     LinkedList();
     ~LinkedList();
+
+    void insertHead(int val);
+    void insertTail(int val);
 };
 
 #endif // LINKED_LIST_HPP
