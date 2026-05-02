@@ -17,13 +17,13 @@ void LinkedList::insertHead(int val) {
   this->head = std::move(newHead);
 };
 
-// LinkedList::insertTail(int val) {
-//   Node* node = this->head;
-//   while(node) {
-//     if (node->next == nullptr) {
-//       node->next = new Node(val);
-//       return;
-//     }
-//     node = node->next;
-//   }
-// };
+void LinkedList::insertTail(int val) {
+  Node* node = this->head.get();
+  while(node != nullptr) {
+    if (node->next == nullptr) {
+      node->next = std::make_unique<Node>(val);
+      return;
+    }
+    node = node->next.get();
+  }
+};
