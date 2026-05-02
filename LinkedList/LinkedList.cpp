@@ -1,43 +1,29 @@
 #include <iostream>
-#include "linkedList.h"
+#include "LinkedList.hpp"
 
-class LinkedList {
-  private: 
-    struct Node {
-      Node(int v) : val(v), next(nullptr) {};
-      int val;
-      Node* next;
-    }
-    Node* head;
-  public:
-    LinkedList() : head(nullptr) {};
-
-    void insertHead(int val) {
-      Node newHead = new Node(val);
-      Node oldHead = this->head;
-      this->head = newHead;
-      this->head->next = oldHead;
-    };
-
-    void insertTail(int val) {
-      Node* node = this->head;
-      while(node) {
-        if (node->next == nullptr) {
-          node->next = new Node(val);
-          return;
-        }
-        node = node->next;
-      }
-    };
-
-    // insert
-    // delete
-    // forEach
-    // insert before
-    // insert after
-    ~LinkedList() {
-      while(head != nullptr) {
-        head = std::move(head->next);
-      }
-    };
+LinkedList::LinkedList() : head(nullptr) {
+  std::cout << "Created Linked List! Happy Hunting.." << std::endl;
 };
+
+LinkedList::~LinkedList() {
+  while(head != nullptr) {
+    head = std::move(head->next);
+  }
+};
+
+void LinkedList::insertHead(int val) {
+  auto newHead = std::make_unique<Node>(val);
+  newHead->next = std::move(this->head);
+  this->head = std::move(newHead);
+};
+
+// LinkedList::insertTail(int val) {
+//   Node* node = this->head;
+//   while(node) {
+//     if (node->next == nullptr) {
+//       node->next = new Node(val);
+//       return;
+//     }
+//     node = node->next;
+//   }
+// };
