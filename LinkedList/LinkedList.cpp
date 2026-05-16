@@ -41,3 +41,16 @@ void LinkedList::insertAfter(int target, int val) {
     node = node->next.get();
   }
 };
+
+void LinkedList::deleteAfter(int target) {
+  Node* node = this->head.get();
+  while(node != nullptr) {
+    if (node->val == target) {
+      if (node->next != nullptr) {
+        node->next = std::move(node->next->next);
+      }
+      return;
+    }
+    node = node->next.get();
+  }
+};
