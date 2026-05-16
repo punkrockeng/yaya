@@ -14,10 +14,13 @@ class LinkedList {
     ~LinkedList();
 
     void insertHead(int val);
+    void removeHead();
     void insertTail(int val);
     void insertAfter(int target, int val);
     void deleteAfter(int target);
     void forEach(void (*fn)(int));
+    void insertBefore(int target, int val);
+    // void deleteBefore(int target);
 };
 
 #endif // LINKEDLIST_HPP

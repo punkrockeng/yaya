@@ -68,3 +68,18 @@ void LinkedList::forEach(void (*fn)(int)) {
     node = node->next.get();
   }
 };
+
+void LinkedList::insertBefore(int target, int val) {
+  Node* node = this->head.get();
+  if (this->head == nullptr) return;
+  while(node) {
+    if (node->next != nullptr && node->next->val == target) {
+      std::unique_ptr<Node> tmp = std::move(node->next);
+      std::unique_ptr<Node> newNode = std::make_unique<Node>(val);
+      node->next = std::move(newNode);
+      node->next->next = std::move(tmp);
+      return;
+    }
+    node = node->next.get();
+  }
+};
