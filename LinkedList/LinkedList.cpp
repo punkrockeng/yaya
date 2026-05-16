@@ -83,3 +83,15 @@ void LinkedList::insertBefore(int target, int val) {
     node = node->next.get();
   }
 };
+
+void LinkedList::deleteBefore(int target) {
+  Node* node = this->head.get();
+  if (this->head == nullptr || this->head->val == target) return;
+  while(node) {
+    if (node->next->next != nullptr && node->next->next->val == target) {
+      node->next = std::move(node->next->next);
+      return;
+    }
+    node = node->next.get();
+  }
+};

@@ -20,7 +20,7 @@ class LinkedList {
     void deleteAfter(int target);
     void forEach(void (*fn)(int));
     void insertBefore(int target, int val);
-    // void deleteBefore(int target);
+    void deleteBefore(int target);
 };
 
 #endif // LINKEDLIST_HPP
