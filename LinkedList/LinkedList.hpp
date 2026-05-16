@@ -18,11 +18,6 @@ class LinkedList {
     void insertAfter(int target, int val);
     void deleteAfter(int target);
     void forEach(void (*fn)(int));
-    // insert
-    // delete
-    // forEach
-    // insert before
-    // insert after
 };
 
 #endif // LINKEDLIST_HPP

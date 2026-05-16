@@ -17,6 +17,12 @@ void LinkedList::insertHead(int val) {
   this->head = std::move(newHead);
 };
 
+void LinkedList::removeHead() {
+  if (this->head != nullptr) {
+    this->head = std::move(this->head->next);
+  }
+};
+
 void LinkedList::insertTail(int val) {
   Node* node = this->head.get();
   while(node != nullptr) {
