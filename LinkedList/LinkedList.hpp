@@ -15,7 +15,7 @@ class LinkedList {
 
     void insertHead(int val);
     void insertTail(int val);
-
+    void insertAfter(int target, int val);
     // insert
     // delete
     // forEach

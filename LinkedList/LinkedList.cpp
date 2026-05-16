@@ -27,3 +27,17 @@ void LinkedList::insertTail(int val) {
     node = node->next.get();
   }
 };
+
+void LinkedList::insertAfter(int target, int val) {
+  Node* node = this->head.get();
+  while(node != nullptr) {
+    if (node->val == target) {
+      std::unique_ptr<Node> newNode = std::make_unique<Node>(val);
+      std::unique_ptr<Node> tmp = std::move(node->next);
+      node->next = std::move(newNode);
+      node->next->next = std::move(tmp);
+      return;
+    }
+    node = node->next.get();
+  }
+};
