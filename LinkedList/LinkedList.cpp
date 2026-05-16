@@ -54,3 +54,11 @@ void LinkedList::deleteAfter(int target) {
     node = node->next.get();
   }
 };
+
+void LinkedList::forEach(void (*fn)(int)) {
+  Node* node = this->head.get();
+  while(node != nullptr) {
+    fn(node->val);
+    node = node->next.get();
+  }
+};
